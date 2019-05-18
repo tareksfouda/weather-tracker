@@ -1,5 +1,6 @@
 package com.capitalone.weathertracker.measurements;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -11,11 +12,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/measurements")
 public class MeasurementsResource {
-  private final MeasurementStore store;
+	
+	@Autowired
+  private MeasurementStore store;
   private final DateTimeFormatter dateTimeFormatter;
 
-  public MeasurementsResource(MeasurementStore store, DateTimeFormatter dateTimeFormatter) {
-    this.store = store;
+  public MeasurementsResource(DateTimeFormatter dateTimeFormatter) {
     this.dateTimeFormatter = dateTimeFormatter;
   }
 
