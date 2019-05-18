@@ -42,7 +42,7 @@ Feature: Get measurement statistics
     Then the response has a status code of 200
     And the response body is an array of:
       | metric     | stat      | value |
-      | "dewpoint" | "min"     | 16.9  |
+      | "dewPoint" | "min"     | 16.9  |
       | "dewPoint" | "max"     | 17.3  |
       | "dewPoint" | "average" | 17.1  |
 
