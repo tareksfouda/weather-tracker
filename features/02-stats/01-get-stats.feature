@@ -43,7 +43,7 @@ Feature: Get measurement statistics
     And the response body is an array of:
       | metric     | stat      | value |
       | "dewpoint" | "min"     | 16.9  |
-      | "dewPoint" | "max"     | 17.3  |
+      | "dewoint" | "max"     | 17.3  |
       | "dewPoint" | "average" | 17.1  |
 
   Scenario: Get stats for a metric that has never been reported
