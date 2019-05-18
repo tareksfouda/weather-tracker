@@ -21,25 +21,31 @@ public class MeasurementAggregatorImpl implements MeasurementAggregator{
 				  
 				  if (stat.toString() == "MIN") {
 					  double minValue = this.getMinimumValue(metric, measurements);
-					  System.out.println("The minimum value for all of the measurements is " + minValue + "for this metric: "+ metric);
-					  AggregateResult aggResult = new AggregateResult(metric, stat, minValue);
-					  result.add(aggResult);
+					  if (minValue != 1000.0) {
+						  System.out.println("The minimum value for all of the measurements is " + minValue + "for this metric: "+ metric);
+						  AggregateResult aggResult = new AggregateResult(metric, stat, minValue);
+						  result.add(aggResult);
+					  }
 				  }
 				  if (stat.toString() == "MAX") {
 					  double maxValue = this.getMaximumValue(metric, measurements);
-					  AggregateResult aggResult = new AggregateResult(metric, stat, maxValue);
-					  result.add(aggResult);
-					  System.out.println("The minimum value for all of the measurements is " + maxValue + "for this metric: "+ metric);
+					  if (maxValue != -1.0) {
+						  AggregateResult aggResult = new AggregateResult(metric, stat, maxValue);
+						  result.add(aggResult);
+						  System.out.println("The minimum value for all of the measurements is " + maxValue + "for this metric: "+ metric);
+					  }
 				  }
 				  
 				  if (stat.toString() == "AVERAGE") {
 					  double minValue = this.getMinimumValue(metric, measurements);
 					  double maxValue = this.getMaximumValue(metric, measurements);
-					  double average = (minValue + maxValue)/2;
-					  System.out.println("The min and max " + minValue +  " "+  maxValue);
-					  System.out.println("The average value for all of the measurements is " + average + "for this metric: "+ metric);
-					  AggregateResult aggResult = new AggregateResult(metric, stat, average);
-					  result.add(aggResult);
+					  double average = (minValue + maxValue)/2;;
+					  if (maxValue != -1.0 || minValue != 1000.0) {
+						  System.out.println("The min and max " + minValue +  " "+  maxValue);
+						  System.out.println("The average value for all of the measurements is " + average + "for this metric: "+ metric);
+						  AggregateResult aggResult = new AggregateResult(metric, stat, average);
+						  result.add(aggResult);  
+					  }
 				  }
 			  }
 			  
