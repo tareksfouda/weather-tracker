@@ -57,9 +57,9 @@ public class MeasurementAggregatorImpl implements MeasurementAggregator{
 		double min = 1000.0;
 		
 		for (Measurement measurement : measurements) {
-			if (measurement.getMetrics().containsKey(metric.toLowerCase())) {
-				if (measurement.getMetric(metric.toLowerCase()) < min) {
-					min = measurement.getMetric(metric.toLowerCase());
+			if (measurement.getMetrics().containsKey(metric)) {
+				if (measurement.getMetric(metric) < min) {
+					min = measurement.getMetric(metric);
 				}
 			}
 		}
@@ -71,9 +71,9 @@ public class MeasurementAggregatorImpl implements MeasurementAggregator{
 		double max = -1.0;
 		
 		for (Measurement measurement : measurements) {
-			if (measurement.getMetrics().containsKey(metric.toLowerCase())) {
-				if (measurement.getMetric(metric.toLowerCase()) > max) {
-					max = measurement.getMetric(metric.toLowerCase());
+			if (measurement.getMetrics().containsKey(metric)) {
+				if (measurement.getMetric(metric) > max) {
+					max = measurement.getMetric(metric);
 				}
 			}
 		}
