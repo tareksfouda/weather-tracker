@@ -18,7 +18,6 @@ public class MeasurmentStoreImpl implements MeasurementStore{
 
 	  public Measurement fetch(ZonedDateTime timestamp) {
 		  System.out.println("Fetching a measurement with the following timestamp: " + timestamp);
-		  // TODO need to get the measurement based on the time stamp
 		    for (Measurement measurement : DB) {
 		    	// Checking if the hour, minute, and day of the year is the same
 		        if (timestamp.withFixedOffsetZone().equals(measurement.getTimestamp().withFixedOffsetZone())) {
